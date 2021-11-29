@@ -4,10 +4,7 @@ on:
     # Sequence of patterns matched against refs/heads
     branches:    
       # Push events on main branch
-      - main
-    tags:        
-      - v1             # Push events to v1 tag
-      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
+      - main             
 jobs:
 
   build:
@@ -34,7 +31,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sekharvoxs:latest 
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sekharvoxs:$$CI_COMMIT_TAG  
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           
