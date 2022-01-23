@@ -5,3 +5,4 @@ First, create a new directory where all the files would live. In this directory 
 test
 test1
 test2
+test3
